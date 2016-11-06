@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   
+    xmlns:tx="http://www.springframework.org/schema/tx" 
+    xsi:schemaLocation="  
+    http://www.springframework.org/schema/beans  
+    http://www.springframework.org/schema/beans/spring-beans.xsd"	>  
+    
+    <bean id="userDao" class="com.spring.UserDaoImpl" scope="prototype">
+    </bean>
+    <bean id="injectionService" class="com.spring.imooc.injection.service.InjectionServiceImpl">
+    <!--	<property name="injectionDao" ref="injectionDao"></property> -->
+    	 <constructor-arg name="injectionDao" ref="injectionDao"></constructor-arg>
+    </bean>
+    <bean id="injectionDao" class="com.spring.imooc.injection.dao.InjectionDaoImpl"></bean>
+</beans>  
